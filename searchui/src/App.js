@@ -21,9 +21,9 @@ import {
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
 
 const connector = new AppSearchAPIConnector({
-  searchKey: "search-676i5ayst4wsczgd7ig1o4y4",
-  engineName: "elephant",
-  endpointBase: "http://enterprise:3002",
+  searchKey: "key",
+  engineName: "elefant-poc",
+  endpointBase: "https://elefant-poc.endpoint.com",
   cacheResponses: false
 });
 
