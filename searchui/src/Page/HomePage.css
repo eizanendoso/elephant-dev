@@ -1,0 +1,74 @@
+.image_title{
+    margin-top: 160px;
+}
+.text_title{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    color: #A6A6A6;
+}
+.search_input > div > input{
+    background: #FAFAFA;
+    border: 1px solid #838383;
+    box-sizing: border-box;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    width: 486px;
+    height: 60px;
+    /* font-weight: italic; */
+    font-size: 20px;
+    
+    position: relative;
+    padding: 5px 5px 5px 65px ;
+}
+
+.search_input > div > img{
+    position: absolute;
+    z-index: 10;
+    top: 325px;
+    left: 530px;
+}
+
+.search_button > div > .button{
+    margin-top: 16px;
+    padding: 11px 44px;
+    background: #C4C4C4;
+    border-radius: 10px;
+
+    /* font-family: Roboto; */
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #FFFFFF;
+}
+
+
+/* ======================================= */
+
+@media screen and (max-width: 465px) {
+    .sui-search-box__text-input {
+        width: 80%;
+    }
+    .search_input > div > img{
+        left: 20px;
+        top: 176px;
+    }
+    .image_title{
+        width: 90%;
+        margin-top: 50px;
+    }
+    .text_title{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .search_input > div > img{
+        left: 29px;
+        top: 176px;
+    }
+}

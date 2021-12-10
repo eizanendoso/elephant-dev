@@ -1,0 +1,114 @@
+.sui-search-box{
+    display: block;
+    text-align: center;
+}
+.sui-layout-header{
+    padding-top: 0px;
+}
+.sui-layout-main-header{
+    margin-bottom: 10px;
+}
+input.button{
+    margin-left: 0px;
+    margin-top: 16px;
+}
+.sui-search-box__wrapper{
+    align-items: center;
+}
+input.sui-search-box__text-input {
+    background: #FAFAFA;
+    border: 1px solid #838383;
+    box-sizing: border-box;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    width: 486px;
+    height: 60px;
+    /* font-weight: italic; */
+    font-size: 20px;
+    
+    position: relative;
+    padding: 5px 5px 5px 65px ;
+}
+.sui-layout-header__inner{
+    position: relative;
+}
+.image-search{
+    position: absolute;
+    top: 11px;
+    left: 390px;
+    z-index: 1;
+}
+input.button{
+    margin-top: 16px;
+    padding: 11px 44px;
+    background: #C4C4C4;
+    border-radius: 10px;
+
+    /* font-family: Roboto; */
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #FFFFFF;
+}
+
+input.button:hover{
+    background: #525252;
+}
+input.button:disabled {
+    cursor: default;
+}
+input.button:disabled:hover {
+    background: #C4C4C4;
+    background-color: #C4C4C4;
+    box-shadow: unset;
+}
+/* .sui-result__key{
+    display: none;
+} */
+.sui-result__key::before{
+    content: '';
+}
+.sui-result__key::after{
+    content: ':';
+}
+@media screen and (max-width: 465px) {
+    .sui-search-box__text-input {
+        width: 100% !important;
+        padding: 5px 5px 5px 60px !important;
+    }
+    .image-search {
+        position: absolute;
+        top: 11px;
+        left: 10px;
+        z-index: 1;
+    }
+    .image_title{
+        width: 90%;
+        margin-top: 50px;
+    }
+    /*  */
+    .sui-layout-header{
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 10px;
+    }
+    .sui-layout-body__inner{
+        padding: 0 5px;
+    }
+    .sui-result__header, .sui-result__details{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .sui-result__title {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .search_input > div > img{
+        left: 29px;
+        top: 176px;
+    }
+}
