@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as _ from 'lodash';
 import moment from 'moment';
+import queryString from 'query-string';
 
 function getFieldType(result, field, type) {
     if (result[field]) {
@@ -74,12 +75,17 @@ DateComponent.propTypes = {
     result: PropTypes.object
 };
 
-const ResultView = ({ key, titleField, urlField, result, _metaField }) => {
-
+const ResultView = (props) => {
+    console.log(props)
+    const { key, titleField, urlField, result } = props;
     const fields = getEscapedFields(result);
     const title = getEscapedField(result, titleField);
-    const _meta = result['_meta']
     const url = getRaw(result, urlField);
+    let param = {}
+    try {
+        param = queryString.parse(url.split("?")[1])
+    }
+    catch { }
 
     return (
         <div key={key}
@@ -109,17 +115,23 @@ const ResultView = ({ key, titleField, urlField, result, _metaField }) => {
                         <ul className="sui-result__details">
 
                             <li>
-                                <span className="sui-result__key">Id</span>{" "}
+                                <span className="sui-result__key">Date</span>{" "}
                                 <span
-                                    dangerouslySetInnerHTML={{ __html: fields['id'] }}
+                                    dangerouslySetInnerHTML={{ __html: (param.sittingdate || "") }}
                                     className="sui-result__value" />
                             </li>
-                            <li>
+                            {/* <li>
+                                <span className="sui-result__key">Doc type</span>{" "}
+                                <span
+                                    dangerouslySetInnerHTML={{ __html: "" }}
+                                    className="sui-result__value" />
+                            </li> */}
+                            {/* <li>
                                 <span className="sui-result__key">Score</span>{" "}
                                 <span
                                     dangerouslySetInnerHTML={{ __html: _meta['score'] }}
                                     className="sui-result__value" />
-                            </li>
+                            </li> */}
                             <li>
                                 <span
                                     dangerouslySetInnerHTML={{ __html: fields.body }}

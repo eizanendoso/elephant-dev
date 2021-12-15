@@ -1,3 +1,6 @@
+.search_input .sui-layout-header{
+    border-bottom: unset
+}
 .sui-search-box{
     display: block;
     text-align: center;

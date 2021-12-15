@@ -30,8 +30,11 @@ function Footer(props) {
                             </p>
                         </div>
                         <div className="row">
-                            <p className="sub-title">
+                            {/* <p className="sub-title">
                                 Search Singapore cases dating back to 2000.
+                            </p> */}
+                            <p className="sub-title">
+                                Coming soon
                             </p>
                         </div>
                     </div>
@@ -42,8 +45,11 @@ function Footer(props) {
                             </p>
                         </div>
                         <div className="row">
-                            <p className="sub-title">
+                            {/* <p className="sub-title">
                                 Search news reports related to law and legal issues.
+                            </p> */}
+                            <p className="sub-title">
+                                Coming soon
                             </p>
                         </div>
                     </div>
