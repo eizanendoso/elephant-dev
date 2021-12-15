@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector";
 import {
     ErrorBoundary,
@@ -101,13 +101,14 @@ const config = {
         }
     },
     apiConnector: connector,
-    initialState: { searchTerm: "", resultsPerPage: 5 }
+    initialState: { searchTerm: "", resultsPerPage: 20 },
+    alwaysSearchOnInitialLoad: false
 };
 
 export default function Search() {
     return (
         <>
-            <div className="search_input">
+            <div className='search_input'>
                 <SearchProvider config={config}>
                     <WithSearch mapContextToProps={({ wasSearched, isLoading }) => ({ wasSearched, isLoading })}>
                         {({ wasSearched, isLoading }) => {
@@ -117,20 +118,6 @@ export default function Search() {
                                         <Layout
                                             header={
                                                 <>
-                                                    {/* <SearchBox
-                                                    autocompleteMinimumCharacters={3}
-                                                    //searchAsYouType={true}
-                                                    autocompleteResults={{
-                                                        linkTarget: "_blank",
-                                                        sectionTitle: "Results",
-                                                        titleField: "title",
-                                                        urlField: "report_url",
-                                                        shouldTrackClickThrough: true,
-                                                        clickThroughTags: ["test"]
-                                                    }}
-                                                    autocompleteSuggestions={true}
-                                                    debounceLength={0}
-                                                /> */}
                                                     <SearchBox
                                                         inputView={({ getAutocomplete, getInputProps, getButtonProps }) => (
                                                             <>
@@ -181,6 +168,10 @@ export default function Search() {
                                                 <>
                                                     {!isLoading && (
                                                         <Results
+                                                            mapContextToProps={context => {
+                                                                console.log(context)
+                                                                return context;
+                                                            }}
                                                             titleField="title"
                                                             urlField="report_url"
                                                             bodyField="body"

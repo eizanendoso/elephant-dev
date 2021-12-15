@@ -22,7 +22,8 @@ function HomePage(props) {
                 </div>
                 <div className='row text_title'>
                     <div className='col-12 text-center'>
-                        <p>The free-to-use legal search engine</p>
+                        {/* <p>The free-to-use legal search engine</p> */}
+                        <p>Legal search engine for the Singapore community</p>
                     </div>
                 </div>
                 <Search />
