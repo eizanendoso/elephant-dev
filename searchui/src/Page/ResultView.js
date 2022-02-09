@@ -1,8 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import * as _ from 'lodash';
 import moment from 'moment';
-import queryString from 'query-string';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 function getFieldType(result, field, type) {
     if (result[field]) {
@@ -76,16 +75,14 @@ DateComponent.propTypes = {
 };
 
 const ResultView = (props) => {
-    console.log(props)
     const { key, titleField, urlField, result } = props;
+    console.log(props)
     const fields = getEscapedFields(result);
     const title = getEscapedField(result, titleField);
     const url = getRaw(result, urlField);
-    let param = {}
-    try {
-        param = queryString.parse(url.split("?")[1])
-    }
-    catch { }
+    const sitting_date = getRaw(result, "sitting_date");
+    const sitting_no = getRaw(result, "sitting_no");
+    const type = getRaw(result, "type");
 
     return (
         <div key={key}
@@ -117,15 +114,21 @@ const ResultView = (props) => {
                             <li>
                                 <span className="sui-result__key">Date</span>{" "}
                                 <span
-                                    dangerouslySetInnerHTML={{ __html: (param.sittingdate || "") }}
+                                    dangerouslySetInnerHTML={{ __html: (sitting_date || "") }}
                                     className="sui-result__value" />
                             </li>
-                            {/* <li>
+                            <li>
+                                <span className="sui-result__key">Sitting No</span>{" "}
+                                <span
+                                    dangerouslySetInnerHTML={{ __html: (sitting_no || "") }}
+                                    className="sui-result__value" />
+                            </li>
+                            <li>
                                 <span className="sui-result__key">Doc type</span>{" "}
                                 <span
-                                    dangerouslySetInnerHTML={{ __html: "" }}
+                                    dangerouslySetInnerHTML={{ __html: (type || "") }}
                                     className="sui-result__value" />
-                            </li> */}
+                            </li>
                             {/* <li>
                                 <span className="sui-result__key">Score</span>{" "}
                                 <span

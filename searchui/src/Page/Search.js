@@ -1,28 +1,21 @@
-import React, { useState } from "react";
-import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector";
 import {
     ErrorBoundary,
-    Facet,
-    SearchProvider,
-    SearchBox,
-    Results,
-    PagingInfo,
-    ResultsPerPage,
-    Paging,
-    Sorting,
+    Facet, Paging, PagingInfo, Results, ResultsPerPage, SearchBox, SearchProvider, Sorting,
     WithSearch
 } from "@elastic/react-search-ui";
 import {
-    Layout,
+    Layout
 } from "@elastic/react-search-ui-views";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
-import './Search.css'
-import ResultView from "./ResultView";
+import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector";
+import React from "react";
 import loading from '../Assets/images/loading.gif';
+import ResultView from "./ResultView";
+import './Search.css';
 
 const SEARCH_KEY = process.env.REACT_APP_SEARCH_KEY;
-const ENGINE_NAME = process.env.REACT_APP_ENGINE_NAME;
 const END_POINT = process.env.REACT_APP_END_POINT;
+const ENGINE_NAME = process.env.REACT_APP_ENGINE_NAME;
 
 const connector = new AppSearchAPIConnector({
     searchKey: SEARCH_KEY,
@@ -50,7 +43,7 @@ const SORT_OPTIONS = [
 ];
 
 const config = {
-    alwaysSearchOnInitialLoad: true,
+    // alwaysSearchOnInitialLoad: true,
     searchQuery: {
         result_fields: {
             title: {
@@ -67,7 +60,19 @@ const config = {
                     size: 500,
                     fallback: true
                 }
-            }
+            },
+            sitting_date: {
+                raw: {}
+            },
+            sitting_no: {
+                raw: {}
+            },
+            type: {
+                raw: {}
+            },
+            // section_name: {
+            //     raw: {}
+            // },
         },
         disjunctiveFacets: ["parliament_no", "vol_no", "sitting_date", "sitting_no", "year"],
         facets: {

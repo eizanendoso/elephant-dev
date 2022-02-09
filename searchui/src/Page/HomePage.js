@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Button, Row } from 'bootstrap';
-import './HomePage.css'
 import Footer from './Footer';
+import './HomePage.css';
 import Search from './Search';
 
 
